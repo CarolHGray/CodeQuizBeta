@@ -1,148 +1,130 @@
- /* Normalize styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --primary-color: #cc6600;
-    --secondary-color: #ff9900;
-    --tertiary-color: #aaaaaa;
-    --white-color: #ffffff;
-    --correct-color: #6b8e23;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-    width: 60%;
-    margin: 0 auto;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .centered {
-    text-align: center;
-  }
-  
-  /* Header */
-  header {
+:root{
+    --btnBackground: #5865f2;
+    --btnBackgroundHover: #4752c4;
+    --mainBackground: #36393f;
+    --mainTextColor: #ffffff;
+    --secondaryBackground: #4f545c;
+}
+
+body {
+    position: relative;
+    margin: 0.5rem;
+    min-height: 98vh;
+    background: var(--mainBackground);
+    color: var(--mainTextColor);
+}
+
+header {
     display: flex;
-    flex-wrap: wrap;
+    align-content: space-between;
     justify-content: space-between;
-    margin: 25px 0;
-  }
-  
-  .scores a,
-  .timer {
-    font-size: 20px;
-  }
-  
-  .scores a {
-    color: var(--secondary-color);
-    cursor: pointer;
-  }
-  
-  .scores a:hover {
-    color: var(--tertiary-color);
-  }
-  
-  /* Start Quiz */
-  .start-quiz {
+    width: 100%;
+    height: 100%;
+}
+
+#display-highscore-div > button,
+#highscore-input-div > button,
+header button {
+    text-decoration: none;
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
+    border: 0;
+    border-radius: 7px; /* round corners */
+    padding: 3px 10px 3px 10px;
+}
+
+header p {
+    padding: 3px 10px 3px 10px; /* add same padding as highscores so looks cleaner */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 5vh 15vw 5vh 15vw;
+}
+
+main h1 {
+    margin: 3vh;
+    font-size: 200%;
     text-align: center;
-  }
-  
-  h1 {
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    color: var(--tertiary-color);
-    border-top: 1px solid var(--tertiary-color);
-    margin: 20px 0;
-    font-style: italic;
+}
+
+main > div,
+#instructions {
+    padding: 0 15% 0 15%;
     text-align: center;
-  }
-  
-  /* Buttons */
-  .btn-grid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin: 20px 0;
-  }
-  
-  button {
-    font-family: Arial, Helvetica, sans-serif;
-    border: none;
-    width: auto;
-    overflow: visible;
-    padding: 10px;
-    background-color: var(--primary-color);
-    border-radius: 10px;
-    font-size: large;
-    margin: 10px;
-    color: var(--white-color);
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: var(--secondary-color);
-  }
-  
-  .hide {
+    font-size: 125%;
+}
+
+main > button {
+    margin: 3vh;
+    width: max-content;
+    padding: 0 10px 0 10px;
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
+    border: 0;
+    border-radius: 7px; /* round corners */
+    font-size: 150%;
+}
+
+main > ul {
+    align-self: flex-start;
+    margin-left: 15%;
+}
+
+main > ul li {
+    margin: 3vh;
+    width: max-content;
+    min-width: 10vw;
+    padding: 5px 10px 5px 10px;
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
+    border: 0;
+    border-radius: 7px; /* round corners */
+    font-size: 150%;
+}
+
+main > div {
+    justify-content: flex-start;
     display: none;
-  }
-  
-  .btn.correct {
-    background-color: var(--correct-color);
-  }
-  
-  .btn.wrong {
-    background-color: var(--tertiary-color);
-  }
-  
-  /* Wrapper for buttons */
-  .controls {
+}
+
+main > div > * {
+    margin: 1rem;
+}
+
+#submit-highscore-div button:hover,
+#display-highscore-div button:hover,
+body button:hover, /* all buttons have same hover effect so reuse code :) */
+main > ul li:hover {
+    background: var(--btnBackgroundHover);
+    cursor: pointer;
+}
+
+footer {
+    position: absolute;
+    height: 5vh;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+#highscore-input-div {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
-  }
-  
-  /* Enter your initial */
-  input[type="text"] {
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid var(--tertiary-color);
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Highscores Page */
-  .highscore {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  
-  .name-div,
-  .score-div {
-    flex: 1 35%;
-    padding: 10px 0;
-    border: 1px solid var(--correct-color);
-  }
-  
-  /*** MEDIA QUERY FOR MOBILE PHONES AND SMALLER ***/
-  /* this will be applied on any screen smaller than 575px */
-  @media screen and (max-width: 575px) {
-    .btn-grid {
-      grid-template-columns: repeat(1, auto);
-      gap: 0;
-      margin: 0;
-    }
-  }
-  
+}
+
+#highscore-input-div > *{
+    margin: 0.5rem;
+}
+
+#highscore-input-div > p {
+    display: inline;
+}
+
+#highscore-input-div > input {
+    width:30%;
+}
