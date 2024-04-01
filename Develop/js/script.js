@@ -45,16 +45,16 @@ var quizData = [
   
   var gamePoints = 0;
   
-  function loadQuestion(jimmy, questionNumber) {
+  function loadQuestion(abcde, questionNumber) {
     // This question takes a question dictionary and renders it on the page
     $(".quiz-header").text("Question " + questionNumber);
-    $(".question").text(jimmy.question);
+    $(".question").text(abcde.question);
     // The line commented out below is just another way to render the questions and possible answers to the page
-    // $("label[for='a']").text(jimmy.a);
-    $("#label-a").text(jimmy.a);
-    $("#label-b").text(jimmy.b);
-    $("#label-c").text(jimmy.c);
-    $("#label-d").text(jimmy.d);
+    // $("label[for='a']").text(abcde.a);
+    $("#label-a").text(abcde.a);
+    $("#label-b").text(abcde.b);
+    $("#label-c").text(abcde.c);
+    $("#label-d").text(abcde.d);
   }
   
   function showPage(className) {
